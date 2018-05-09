@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<script>
+'use strict';
+
+(async () => {
+  const reg = await navigator.serviceWorker.register("service-worker.js", {
+	  scope: "/push_api_test/"
+  });
+  
+  const sub = await reg.pushManager.subscribe({
+    applicationServerKey: 'BEjq68B7rJxkdmWem0gOLt0q0IW2F3icum5sJV6ziYUu-OgqjlliUCu4gjLGuuYJy5SPSBBTgUDDxOYiB6tQFss=',
+    userVisibleOnly: true
+  })
+
+  sub.then((sub)=> {
+     console.log(reg.pushnager.getSubscription());
+  });
+
+})();
+
+</script>
+</html>
